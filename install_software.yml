@@ -1,13 +1,33 @@
 ---
-- hosts: localhost
-  become: yes
+- name: Install simple software on Raspberry Pi
+  hosts: raspberrypi
+  become: true
   tasks:
-    - name: Update package list
+    - name: Update apt cache
       apt:
         update_cache: yes
 
-    - name: Install git
+    - name: Install curl
+      apt:
+        name: curl
+        state: present
+
+    - name: Install htop (process viewer)
+      apt:
+        name: htop
+        state: present
+
+    - name: Install vim (text editor)
+      apt:
+        name: vim
+        state: present
+
+    - name: Install git (version control)
       apt:
         name: git
         state: present
 
+    - name: Install tree (directory viewer)
+      apt:
+        name: tree
+        state: present
