@@ -1,33 +1,38 @@
 ---
-- name: Install simple software on Raspberry Pi
-  hosts: localhost
+- hosts: pi2
   become: true
   tasks:
+
     - name: Update apt cache
-      apt:
+      ansible.builtin.apt:
         update_cache: yes
 
-    - name: Install curl
-      apt:
-        name: curl
+    - name: Install Firefox ESR (Webbrowser)
+      ansible.builtin.apt:
+        name: firefox-esr
         state: present
 
-    - name: Install htop (process viewer)
-      apt:
-        name: htop
+    - name: Install Thunderbird (E-Mail client)
+      ansible.builtin.apt:
+        name: thunderbird
         state: present
 
-    - name: Install vim (text editor)
-      apt:
+    - name: Install Vim (Text editor)
+      ansible.builtin.apt:
         name: vim
         state: present
 
-    - name: Install git (version control)
-      apt:
-        name: git
+    - name: Install OpenVPN (VPN client)
+      ansible.builtin.apt:
+        name: openvpn
         state: present
 
-    - name: Install tree (directory viewer)
-      apt:
-        name: tree
+    - name: Install Samba (File sharing)
+      ansible.builtin.apt:
+        name: samba
+        state: present
+
+    - name: Install htop (System monitor)
+      ansible.builtin.apt:
+        name: htop
         state: present
