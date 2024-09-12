@@ -14,7 +14,4 @@
       apt:
         name: python3
         state: latest
-    - name: Installiere Docker
-      apt:
-        name: docker.io
-        state: latest
+
