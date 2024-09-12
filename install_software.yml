@@ -1,6 +1,6 @@
 ---
 - name: Install simple software on Raspberry Pi
-  hosts: raspberrypi
+  hosts: localhost
   become: true
   tasks:
     - name: Update apt cache
